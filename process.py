@@ -112,9 +112,9 @@ class LS_Detector:
             for index in indices:
                 # index = index[0]
                 x, y, w, h = boxes[index]
-                cv2.rectangle(img, (x, y), (x + w, y + h), colors[class_ids[index]], 2)
-                cv2.putText(img, self.labels[class_ids[index]], (x + 5, y + 20), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1,
-                            colors[class_ids[index]], 2)
+                # cv2.rectangle(img, (x, y), (x + w, y + h), colors[class_ids[index]], 2)
+                # cv2.putText(img, self.labels[class_ids[index]], (x + 5, y + 20), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1,
+                #             colors[class_ids[index]], 2)
 
             x, y, w, h = boxes[right_most_id]
             cv2.rectangle(img, (x, y), (x + w, y + h), last_color, 2)

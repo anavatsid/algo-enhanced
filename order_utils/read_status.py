@@ -1,14 +1,20 @@
+import os
+import pandas as pd
+import time
+
+from ibapi.client import EClient
+from ibapi.wrapper import EWrapper
+from ibapi.common import TickerId
+from threading import Thread, Timer
+
+from dotenv import load_dotenv
+load_dotenv()
+ibgw_ip_address = os.environ.get('IB_GATEWAY_IP', '127.0.0.1')
+ibgw_port_num = int(os.environ.get('IB_GATEWAY_PORT', '4002'))
+ibgw_client_num = int(os.environ.get('IB_GATEWAY_CLIENTS', '8'))
+
 
 def read_positions(target_symbol=None):  # read all accounts positions and return DataFrame with information
-
-    from ibapi.client import EClient
-    from ibapi.wrapper import EWrapper
-    from ibapi.common import TickerId
-    from threading import Thread, Timer
-
-    import pandas as pd
-    import time
-
     class ib_class(EWrapper, EClient):
 
         def __init__(self):

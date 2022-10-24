@@ -12,7 +12,13 @@ from ibapi.contract import Contract
 from ibapi.order import *
 from threading import Timer, Thread
 import configparser
+from dotenv import load_dotenv
+load_dotenv()
+ibgw_ip_address = os.environ.get('IB_GATEWAY_IP', '127.0.0.1')
+ibgw_port_num = int(os.environ.get('IB_GATEWAY_PORT', '4002'))
+ibgw_client_num = int(os.environ.get('IB_GATEWAY_CLIENTS', '8'))
 
+print(ibgw_ip_address, ibgw_port_num, ibgw_client_num)
 
 def get_cfg(config_path):
     config = configparser.ConfigParser()
@@ -121,7 +127,7 @@ def place_order(contract_dict: dict, order_dict: dict):
 
     app = OrderApp(contract_dict, order_dict)
     app.nextOrderId = 0
-    app.connect("127.0.0.1", 4002, 8)
+    app.connect(ibgw_ip_address, ibgw_port_num, ibgw_client_num)
     # Start the socket in a thread
     # api_thread = Thread(target=app.run, daemon=True)
     # api_thread.start()

@@ -6,7 +6,7 @@ import time
 import cv2
 from order_utils.create_order import get_cfg
 from order_utils.read_status import read_positions
-from process import LS_Detector
+from process import LSC_Detector
 from rect_input import rectangle_select
 from capture import ScreenCap
 from trade import process_trade
@@ -191,9 +191,10 @@ def ls_detect(cap, trade_config_path, is_show, is_trade=False):
 
     export_log(msg, trade_config_path, is_notified=True)
     
-    ls_processor = LS_Detector()
+    ls_processor = LSC_Detector(weights="model/detects_final.weights", config="model/config")
 
     cur_signal = None
+
     fps = int(cap.get(cv2.CAP_PROP_FPS))
     if fps == 0:
         fps = 15
@@ -213,7 +214,6 @@ def ls_detect(cap, trade_config_path, is_show, is_trade=False):
             response_data = ls_processor.infer(frame)
             if response_data["success"]:
                 if cur_signal != response_data["signal"]:
-
                     if response_data["signal"] is None:
                         pass
                     else:

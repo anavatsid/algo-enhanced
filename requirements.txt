@@ -6,5 +6,6 @@ pillow
 pyqt5
 ibapi
 pandas
+scikit-image
 # flask
 # flask-restful

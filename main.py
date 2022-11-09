@@ -191,7 +191,7 @@ def ls_detect(cap, trade_config_path, is_show, is_trade=False):
 
     export_log(msg, trade_config_path, is_notified=True)
     
-    ls_processor = LSC_Detector(weights="model/detects_final.weights", config="model/config")
+    ls_processor = LSC_Detector(weights="model/detects-custom_final.weights", config="model/custom.config")
 
     cur_signal = None
 
@@ -238,8 +238,8 @@ def ls_detect(cap, trade_config_path, is_show, is_trade=False):
                             }
                             order_processor.order_buffer.append(order_data)
 
-                if is_show:
-                    cv2.imshow('frame', response_data["frame"])
+                # if is_show:
+                #     cv2.imshow('frame', response_data["frame"])
             else:
                 msg = "Failed to Process: {}".format(response_data['descript'])
                 now = datetime.now().strftime("%m-%d-%Y %H:%M:%S")

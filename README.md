@@ -24,18 +24,25 @@ Here, argument **_show_** is for displaying the detection result.
         --trade               Decide if auto trade is enable or not. (default: False)
 
 
-### Screen Capture
+### AUTO TRADE
 
 In case of screen capture, Please use the below command. If so, the available ticker names will be displayed from config file. From there, select one of them and select the specific area on screeen.
 ```commandline
-python main.py -i capture --show --trade
+python main.py --trade
+
+### NO AUTO TRADE, SIMPLY DISPLAY TRADE ON TERMINAL AND SEND TO SLACK MESSSAGES
+
+In case of screen capture, Please use the below command. If so, the available ticker names will be displayed from config file. From there, select one of them and select the specific area on screeen.
+```commandline
+python main.py
+
 ```
 
 https://user-images.githubusercontent.com/96384530/184595640-47954005-1199-4cfd-bf85-2fa601dcf57a.mp4
 
-### UI Manual 
+### AUTO 
 ```
-python main_app.py
+python main.py
 ```
 By using combobox, please select the target Ticker config file. 
 Click _**FLATTEN**_, **_REVERSE_**, **_BUY_**, **_SELL_** button and place order action. 

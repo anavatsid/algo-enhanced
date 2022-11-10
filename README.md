@@ -30,10 +30,9 @@ In case of screen capture, Please use the below command. If so, the available ti
 ```commandline
 python main.py --trade
 
-### NO AUTO TRADE, SIMPLY DISPLAY TRADE ON TERMINAL AND SEND TO SLACK MESSSAGES
 
-In case of screen capture, Please use the below command. If so, the available ticker names will be displayed from config file. From there, select one of them and select the specific area on screeen.
-```commandline
+### NO AUTO TRADE
+### SIMPLY DISPLAY TRADE ON TERMINAL AND SEND TO SLACK MESSSAGES
 python main.py
 
 ```
